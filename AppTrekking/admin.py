@@ -1,3 +1,6 @@
 from django.contrib import admin
+from AppTrekking.models import Trekking, Persona, Evento
 
-# Register your models here.
+admin.site.register(Trekking, Persona, Evento)
+
+

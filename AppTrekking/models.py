@@ -17,7 +17,7 @@ class Persona(models.Model):
     nombre = models.TextField(max_length=100)
     apellido = models.TextField(max_length=100, default="Por_hacer")
     dni = models.TextField(max_length=8)
-    fecha_nacimiento = models.DateField(auto_now=True)
+    fecha_nacimiento = models.DateField()
     
     def __str__(self):
         return f"{self.id} - {self.nombre} - {self.apellido} - {self.dni}"
