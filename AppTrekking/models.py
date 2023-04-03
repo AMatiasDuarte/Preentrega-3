@@ -15,7 +15,7 @@ class Trekking(models.Model):
     
 class Persona(models.Model):
     nombre = models.TextField(max_length=100)
-    apellido = models.TextField(max_length=100, default="Por_hacer")
+    apellido = models.TextField(max_length=100)
     dni = models.TextField(max_length=8)
     fecha_nacimiento = models.DateField()
     

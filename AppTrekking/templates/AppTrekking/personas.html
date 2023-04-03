@@ -3,6 +3,18 @@
 {% block titulo %} Listado de Personas {% endblock %}
 
 {% block listado%}
+
+<form action="" method="POST">
+
+    {{form.as_p}}
+    <input type="submit" value="Agregar">
+
+
+
+</form>
+
+
+
 <ul>
 
     {% for persona in personas %}
