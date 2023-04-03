@@ -2,7 +2,7 @@ from django.db import models
 
 class Trekking(models.Model):
     nombre = models.TextField(max_length=100)
-    estado = models.TextField(max_length=100, default="Por_hacer")
+    estado = models.TextField(max_length=100)
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
     
@@ -25,7 +25,7 @@ class Persona(models.Model):
     
 class Evento(models.Model):
     nombre = models.TextField(max_length=100)
-    estado = models.TextField(max_length=100, default="Por_hacer")
+    estado = models.TextField(max_length=100)
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
     
