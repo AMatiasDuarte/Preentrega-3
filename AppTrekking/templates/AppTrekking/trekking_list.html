@@ -1,0 +1,32 @@
+{% extends 'AppTrekking/index.html' %}
+
+{% block titulo %} Listado de Trekkings {% endblock %}
+
+
+{% block listado%}
+
+<form>
+    <p>
+        <label for="criterio_nombre">Criterio:</label>
+        <input type="text" name="nombre" maxlenght="100" required="" id="criterio_nombre">
+      </p>  
+      <p>
+        <input type="submit" value="Buscar">
+      </p>  
+
+</form>
+
+
+<ul>
+
+    {% for trekking in trekkings %}
+        <li>{{trekking}}</li>
+
+
+    {% endfor %}
+
+</ul>
+
+{% endblock %}
+
+{% block title%} Trekkings {% endblock %}

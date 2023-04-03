@@ -21,3 +21,14 @@ class TrekkingForm(forms.Form):
     creado = forms.DateField()
     modificado = forms.DateField()
     
+
+class BuscarPersonasForm(forms.Form):
+    criterio_nombre= forms.CharField(max_length=100)
+    
+    
+class BuscarTrekkingsForm(forms.Form):
+    criterio_nombre= forms.CharField(max_length=100)
+    
+    
+class BuscarEventosForm(forms.Form):
+    criterio_nombre= forms.CharField(max_length=100)

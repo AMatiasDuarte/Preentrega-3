@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from AppTrekking.views import mostrar_template, mostrar_mis_trekkings, mostrar_mis_personas, mostrar_mis_eventos
 from AppTrekking.views import crear_persona, crear_evento, crear_trekking
+from AppTrekking.views import BuscarPersonas, BuscarEventos, BuscarTrekkings
 from CommunityTrekk.views import index
 
 urlpatterns = [
@@ -29,4 +30,7 @@ urlpatterns = [
     path('personas/create', crear_persona, name="personas-create"),
     path('trekkings/create', crear_trekking, name="trekkings-create"),
     path('eventos/create', crear_evento, name="eventos-create"),
+    path('personas/list', BuscarPersonas.as_view(), name="personas-list"),
+    path('eventos/list', BuscarEventos.as_view(), name="eventos-list"),
+    path('trekkings/list', BuscarTrekkings.as_view(), name="trekkings-list"),
 ]
