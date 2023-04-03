@@ -29,7 +29,7 @@ def crear_persona(request):
     context= {"personas": personas, "form": fp}
     
     if fp.is_valid():
-        Persona(fp.data["nombre"], fp.data["apellido"], fp.data["dni"], fp.data["fecha_nacimiento"]).save()
+        Persona(nombre= fp.data["nombre"], apellido= fp.data["apellido"], dni= fp.data["dni"], fecha_nacimiento= fp.data["fecha_nacimiento"]).save()
         
     return render(request, "AppTrekking/personas.html", context)
 
@@ -39,7 +39,7 @@ def crear_trekking(request):
     context= {"trekkings": trekkings, "form": ft}
     
     if ft.is_valid():
-        Trekking(ft.data["nombre"], ft.data["estado"], ft.data["creado"], ft.data["modificado"]).save()
+        Trekking(nombre= ft.data["nombre"], estado= ft.data["estado"], creado= ft.data["creado"], modificado= ft.data["modificado"]).save()
         
     return render(request, "AppTrekking/trekkings.html", context)
 
@@ -49,7 +49,7 @@ def crear_evento(request):
     context= {"eventos": eventos, "form": fe}
     
     if fe.is_valid():
-        Evento(fe.data["nombre"], fe.data["estado"], fe.data["creado"], fe.data["modificado"]).save()
+        Evento(nombre= fe.data["nombre"], estado= fe.data["estado"], creado= fe.data["creado"], modificado= fe.data["modificado"]).save()
         
     return render(request, "AppTrekking/eventos.html", context)
 

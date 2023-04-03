@@ -4,8 +4,8 @@
 
 {% block listado%}
 
-<form action="" method="POST">
-
+<form action="{% url 'personas-create' %}" method="POST">
+    {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Agregar">
 
