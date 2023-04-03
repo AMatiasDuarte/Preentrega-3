@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from AppTrekking.models import Trekking, Persona, Evento
 from AppTrekking.forms import TrekkingForm, PersonaForm, EventoForm
 
@@ -8,24 +9,24 @@ def mostrar_template(request):
 
 def mostrar_mis_trekkings(request):
     trekkings = Trekking.objects.all()
-    context= {"trekkings": trekkings, "form": TrekkingForm(),}
+    context= {"trekkings": trekkings, "form": TrekkingForm()}
     return render(request, "AppTrekking/trekkings.html", context)
     
 def mostrar_mis_personas(request):
     personas = Persona.objects.all()
-    context= {"personas": personas, "form": PersonaForm(),}
+    context= {"personas": personas, "form": PersonaForm()}
     return render(request, "AppTrekking/personas.html", context)
 
 def mostrar_mis_eventos(request):
     eventos = Evento.objects.all()
-    context= {"eventos": eventos, "form": EventoForm(),}
+    context= {"eventos": eventos, "form": EventoForm()}
     return render(request, "AppTrekking/eventos.html", context)
 
 
 def crear_persona(request):
     fp= PersonaForm(request.POST)
     personas= Persona.objects.all() 
-    context= {"personas": personas, "form": fp,}
+    context= {"personas": personas, "form": fp}
     
     if fp.is_valid():
         Persona(fp.data["nombre"], fp.data["apellido"], fp.data["dni"], fp.data["fecha_nacimiento"]).save()
@@ -35,7 +36,7 @@ def crear_persona(request):
 def crear_trekking(request):
     ft= TrekkingForm(request.POST)
     trekkings = Trekking.objects.all()
-    context= {"trekkings": trekkings, "form": ft,}
+    context= {"trekkings": trekkings, "form": ft}
     
     if ft.is_valid():
         Trekking(ft.data["nombre"], ft.data["estado"], ft.data["creado"], ft.data["modificado"]).save()
@@ -45,7 +46,7 @@ def crear_trekking(request):
 def crear_evento(request):
     fe= EventoForm(request.POST)
     eventos = Evento.objects.all()
-    context= {"eventos": eventos, "form": fe,}
+    context= {"eventos": eventos, "form": fe}
     
     if fe.is_valid():
         Evento(fe.data["nombre"], fe.data["estado"], fe.data["creado"], fe.data["modificado"]).save()

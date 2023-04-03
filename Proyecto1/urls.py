@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AppTrekking.views import mostrar_template, mostrar_mis_trekkings, mostrar_mis_personas, mostrar_mis_eventos
-from AppTrekking.views import crear_persona, crear_evento, crear_trekking
+from AppTrekking.views import (mostrar_template, mostrar_mis_trekkings, mostrar_mis_personas, mostrar_mis_eventos)
+from AppTrekking.views import (crear_persona, crear_evento, crear_trekking)
 from CommunityTrekk.views import index
 
 urlpatterns = [
