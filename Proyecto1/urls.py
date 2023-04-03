@@ -26,7 +26,7 @@ urlpatterns = [
     path('mis-personas/', mostrar_mis_personas, name="mis-persona"),
     path('mis-eventos/', mostrar_mis_eventos, name="mis-evento"),
     path('', index),
-    path('personas/crear', crear_persona, name="personas-crear"),
-    path('trekkings/crear', crear_trekking, name="trekkings-crear"),
-    path('eventos/crear', crear_evento, name="eventos-crear"),
+    path('personas/create', crear_persona, name="personas-create"),
+    path('trekkings/create', crear_trekking, name="trekkings-create"),
+    path('eventos/create', crear_evento, name="eventos-create"),
 ]
