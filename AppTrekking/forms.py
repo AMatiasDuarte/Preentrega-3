@@ -11,13 +11,13 @@ class PersonaForm(forms.Form):
 class EventoForm(forms.Form):
     nombre = forms.CharField(max_length=100)
     estado = forms.CharField(max_length=100)
-    creado = forms.DateTimeField(auto_now_add=True)
-    modificado = forms.DateTimeField(auto_now=True)
+    creado = forms.DateField()
+    modificado = forms.DateField()
     
     
 class TrekkingForm(forms.Form):
     nombre = forms.CharField(max_length=100)
     estado = forms.CharField(max_length=100)
-    creado = forms.DateTimeField(auto_now_add=True)
-    modificado = forms.DateTimeField(auto_now=True)
+    creado = forms.DateField()
+    modificado = forms.DateField()
     

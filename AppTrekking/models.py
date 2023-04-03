@@ -3,8 +3,8 @@ from django.db import models
 class Trekking(models.Model):
     nombre = models.TextField(max_length=100)
     estado = models.TextField(max_length=100)
-    creado = models.DateTimeField(auto_now_add=True)
-    modificado = models.DateTimeField(auto_now=True)
+    creado = models.DateField()
+    modificado = models.DateField()
     
     def terminar(self):
         self.estado = "Terminado"
@@ -26,8 +26,8 @@ class Persona(models.Model):
 class Evento(models.Model):
     nombre = models.TextField(max_length=100)
     estado = models.TextField(max_length=100)
-    creado = models.DateTimeField(auto_now_add=True)
-    modificado = models.DateTimeField(auto_now=True)
+    creado = models.DateField()
+    modificado = models.DateField()
     
     def concluir(self):
         self.estado = "Concluído"
