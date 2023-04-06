@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from CommunityTrekk.models import Post
 from django.urls import reverse_lazy
 
@@ -26,5 +26,10 @@ class PostUpdate(UpdateView):
     model= Post
     success_url= reverse_lazy("post-list")
     fields= '__all__'
-    
+
+class PostDelete(DeleteView):
+    model= Post
+    success_url= reverse_lazy("post-list")
+
+
 

@@ -18,7 +18,7 @@ from django.urls import path
 from AppTrekking.views import mostrar_template, mostrar_mis_trekkings, mostrar_mis_personas, mostrar_mis_eventos
 from AppTrekking.views import crear_persona, crear_evento, crear_trekking
 from AppTrekking.views import BuscarPersonas, BuscarEventos, BuscarTrekkings
-from CommunityTrekk.views import index, PostList, PostDetail, PostCreate, PostUpdate
+from CommunityTrekk.views import index, PostList, PostDetail, PostCreate, PostUpdate, PostDelete
 
 
 urlpatterns = [
@@ -38,6 +38,7 @@ urlpatterns = [
     path('post/<pk>/detail', PostDetail.as_view(), name="post-detail"),
     path('post/create', PostCreate.as_view(), name="post-create"),
     path('post/<pk>/update', PostUpdate.as_view(), name="post-update"),
+    path('post/<pk>/delete', PostDelete.as_view(), name="post-delete"),
     
     
 ]

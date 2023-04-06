@@ -1,0 +1,15 @@
+{% extends "CommunityTrekk/base.html" %}
+
+{% block main %}
+
+<h1> Confirma que desea eliminar el Trekk {{post.heading}}?</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Eliminar">
+</form>
+
+{% endblock %}
+
+
