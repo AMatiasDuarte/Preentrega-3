@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from CommunityTrekk.models import Post
 
 
@@ -9,6 +9,10 @@ def index(request):
 
 
 class PostList(ListView):
+    model= Post
+    
+    
+class PostDetail(DetailView):
     model= Post
     
     

@@ -1,11 +1,13 @@
+{% extends "CommunityTrekk/base.html" %}
 
+{% block main %}
 <ul>
-{% for post in object_list%}
+{% for post in object_list %}
 
 <li>
 
 
-    {{post}}
+    {{post}} <a href="{% url 'post-detail' post.id %}"> Detalle <a>
 
 
 </li>
@@ -13,3 +15,4 @@
 {% endfor%}
 
 </ul>
+{% endblock %}
