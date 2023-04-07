@@ -4,7 +4,7 @@ from CommunityTrekk.models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def index(request):
     return render(request, "CommunityTrekk/index.html")
@@ -23,14 +23,30 @@ class PostCreate(LoginRequiredMixin, CreateView):
     success_url= reverse_lazy("post-list")
     fields= '__all__'
     
-class PostUpdate(LoginRequiredMixin, UpdateView):
+class PostUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
     model= Post
     success_url= reverse_lazy("post-list")
     fields= '__all__'
 
-class PostDelete(LoginRequiredMixin, DeleteView):
+    def test_func(self):
+        user_id= self.request.user.id
+        post_id= self.kwargs.get('pk')
+        return Post.objects.filter(publisher= user_id, id= post_id).exists()
+    
+    def handle_no_permission(self):
+        return render(self.request, "CommunityTrekk/not_found.html")
+    
+class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model= Post
     success_url= reverse_lazy("post-list")
+
+    def test_func(self):
+        user_id= self.request.user.id
+        post_id= self.kwargs.get('pk')
+        return Post.objects.filter(publisher= user_id, id= post_id).exists()
+    
+    def handle_no_permission(self):
+        return render(self.request, "CommunityTrekk/not_found.html")
 
 
 class SignUp(CreateView):
