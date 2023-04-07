@@ -2,7 +2,7 @@ from django.db import models
 
 class Trekking(models.Model):
     nombre = models.TextField(max_length=100)
-    estado = models.TextField(max_length=100)
+    estado = models.TextField(max_length=100)   
     creado = models.DateTimeField(auto_now_add="")
     modificado = models.DateTimeField(auto_now="")
     

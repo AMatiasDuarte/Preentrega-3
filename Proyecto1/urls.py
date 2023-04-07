@@ -19,7 +19,7 @@ from AppTrekking.views import mostrar_template, mostrar_mis_trekkings, mostrar_m
 from AppTrekking.views import crear_persona, crear_evento, crear_trekking
 from AppTrekking.views import BuscarPersonas, BuscarEventos, BuscarTrekkings
 from CommunityTrekk.views import index, PostList, PostDetail, PostCreate, PostUpdate, PostDelete
-
+from CommunityTrekk.views import SignUp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,6 +39,7 @@ urlpatterns = [
     path('post/create', PostCreate.as_view(), name="post-create"),
     path('post/<pk>/update', PostUpdate.as_view(), name="post-update"),
     path('post/<pk>/delete', PostDelete.as_view(), name="post-delete"),
+    path('signup', SignUp.as_view(), name="signup"),
     
     
 ]
