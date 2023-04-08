@@ -20,6 +20,10 @@ from AppTrekking.views import crear_persona, crear_evento, crear_trekking
 from AppTrekking.views import BuscarPersonas, BuscarEventos, BuscarTrekkings
 from CommunityTrekk.views import index, PostList, PostDetail, PostCreate, PostUpdate, PostDelete
 from CommunityTrekk.views import SignUp, Login, Logout
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,5 +46,8 @@ urlpatterns = [
     path('signup/', SignUp.as_view(), name="signup"),
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
-    
+        
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+
