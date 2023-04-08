@@ -14,6 +14,9 @@ class Post(models.Model):
         return f"{self.id} - {self.heading}"
     
     
-        
+class Profile(models.Model):
+    user= models.OneToOneField(to= User, on_delete=models.CASCADE, related_name="profile")
+    imagen = models.ImageField(upload_to= "profiles", null= True, blank= True)
+    
     
     
