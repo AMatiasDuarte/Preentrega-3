@@ -8,7 +8,7 @@ class Post(models.Model):
     heading= models.CharField(max_length=50)
     description= models.CharField(max_length=250)
     publisher= models.ForeignKey(to= User, on_delete= models.CASCADE, related_name="publisher")
-    imagen1 = models.ImageField(upload_to= "posts", null= True, blank= True)
+    imagen = models.ImageField(upload_to= "posts", null= True, blank= True)
     imagen2 = models.ImageField(upload_to= "posts", null= True, blank= True)
     imagen3 = models.ImageField(upload_to= "posts", null= True, blank= True)
     
