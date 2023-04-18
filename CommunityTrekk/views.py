@@ -63,4 +63,5 @@ class Logout(LogoutView):
 
 class ProfileUpdate(UpdateView):
     model= Profile
+    success_url= reverse_lazy("profile-list")
     fields= '__all__'
