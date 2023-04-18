@@ -7,7 +7,11 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def index(request):
-    return render(request, "CommunityTrekk/index.html")
+    context= {
+            "posts": Post.objects.all()
+        
+    }
+    return render(request, "CommunityTrekk/index.html", context)
 
 
 class PostList(ListView):
