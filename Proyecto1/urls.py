@@ -19,7 +19,7 @@ from AppTrekking.views import mostrar_template, mostrar_mis_trekkings, mostrar_m
 from AppTrekking.views import crear_persona, crear_evento, crear_trekking
 from AppTrekking.views import BuscarPersonas, BuscarEventos, BuscarTrekkings
 from CommunityTrekk.views import index, PostList, PostDetail, PostCreate, PostUpdate, PostDelete
-from CommunityTrekk.views import SignUp, Login, Logout, ProfileUpdate
+from CommunityTrekk.views import SignUp, Login, Logout, ProfileUpdate, ProfileCreate
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -47,7 +47,7 @@ urlpatterns = [
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
     path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
-        
+    path('profile/create', ProfileCreate.as_view(), name="profile-create"),    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

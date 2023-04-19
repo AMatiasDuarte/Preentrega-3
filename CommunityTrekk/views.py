@@ -6,6 +6,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
+def about_mi(request):
+    return render(request, "CommunityTrekk/about_mi.html")
+
+
+
 def index(request):
     context= {
             "posts": Post.objects.all()
@@ -67,5 +72,8 @@ class Logout(LogoutView):
 
 class ProfileUpdate(UpdateView):
     model= Profile
-    success_url= reverse_lazy("profile-list")
+    fields= '__all__'
+    
+class ProfileCreate(CreateView):
+    model= Profile
     fields= '__all__'

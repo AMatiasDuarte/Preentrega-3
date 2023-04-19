@@ -4,6 +4,13 @@
 <ul>
 
     <h1> Lista de Treeks </h1>
+    
+    {% if not object_list %}
+    
+        <h2> No existen Trekkings. </h2>
+    
+    {% endif %}
+    
     {% for post in object_list %}
 
     <li>
