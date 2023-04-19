@@ -81,3 +81,17 @@ class ProfileCreate(CreateView):
 class MensajeCreate(CreateView):
     model= Mensaje
     fields= '__all__'
+    success_url= reverse_lazy("post-list")
+    
+    
+class MensajeList(ListView):
+    model= Mensaje
+    context_object_name= "mensajes"
+    
+    def get_queryset(self):
+        return Mensaje.objects.filter(destinatario= self.request.user.id).all()
+    
+    
+class MensajeDelete(DeleteView):
+    model= Mensaje
+    
