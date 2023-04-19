@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from CommunityTrekk.models import Post, Profile
+from CommunityTrekk.models import Post, Profile, Mensaje
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
@@ -76,4 +76,8 @@ class ProfileUpdate(UpdateView):
     
 class ProfileCreate(CreateView):
     model= Profile
+    fields= '__all__'
+    
+class MensajeCreate(CreateView):
+    model= Mensaje
     fields= '__all__'

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     principal_title= models.CharField(max_length=100)
-    principal_description= models.CharField(max_length=500)
+    principal_subtitle= models.CharField(max_length=500)
     heading= models.CharField(max_length=50)
     description= models.CharField(max_length=250)
     created_the= models.DateTimeField(auto_now_add= True)
@@ -25,4 +25,9 @@ class Profile(models.Model):
     imagen = models.ImageField(upload_to= "profiles", null= True, blank= True)
     
     
+    
+class Mensaje(models.Model):
+    mensaje= models.TextField(max_length=2000)
+    email= models.EmailField()
+    destinatario= models.ForeignKey(to= User, on_delete= models.CASCADE, related_name= "destinatario")
     
