@@ -74,9 +74,15 @@ class ProfileUpdate(UpdateView):
     model= Profile
     fields= '__all__'
     
-class ProfileCreate(CreateView):
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model= Profile
     fields= '__all__'
+    success_url= reverse_lazy("post-list")
+   
+class ProfileList(LoginRequiredMixin, ListView):
+    model= Profile
+    context_object_name= "profiles" 
+
     
 class MensajeCreate(CreateView):
     model= Mensaje
@@ -84,7 +90,7 @@ class MensajeCreate(CreateView):
     success_url= reverse_lazy("post-list")
     
     
-class MensajeList(ListView):
+class MensajeList(LoginRequiredMixin, ListView):
     model= Mensaje
     context_object_name= "mensajes"
     
@@ -92,6 +98,11 @@ class MensajeList(ListView):
         return Mensaje.objects.filter(destinatario= self.request.user.id).all()
     
     
-class MensajeDelete(DeleteView):
+class MensajeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model= Mensaje
+    success_url= reverse_lazy("mensaje-list")
     
+    def test_func(self):
+        user_id= self.request.user.id
+        mensaje= self.kwargs.get('pk')
+        return Mensaje.objects.filter(destinatario= user_id).exists()

@@ -1,0 +1,35 @@
+{% extends "CommunityTrekk/base.html" %}
+
+{% block main %}
+<ul>
+
+    <h1> Lista de Perfiles </h1>
+    
+    {% if not profiles %}
+    
+        <h2> No existen Perfiles. </h2>
+    
+    {% endif %}
+    
+    {% for profile in profiles %}
+
+    <li>
+        
+        <p>{{profile}}</p>
+    
+
+        {% if user.is_authenticated %}
+
+          
+            <a href="{% url 'profile-update' profile.id %}"> Actualizar </a>
+    
+    
+        
+        {% endif %}
+
+    </li>
+
+    {% endfor%}
+
+    </ul>
+{% endblock %}
